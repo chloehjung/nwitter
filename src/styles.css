@@ -11,6 +11,8 @@
   margin-top: 80px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 input {
@@ -282,4 +284,14 @@ form {
   display: block;
   font-size: 12px;
   text-decoration: underline;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation li:first-child {
+  margin-right: 10px;
 }

@@ -11,13 +11,14 @@ function App() {
     onAuthStateChanged(authService, function(user) {
       if(user) {
         setIsLoggedIn(true);
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid
+        });
       } else {
         setIsLoggedIn(false);
+        setUserObj(null);
       }
-      setUserObj({
-        displayName: user.displayName,
-        uid: user.uid
-      });
       setInit(true);
     });
   }, []);

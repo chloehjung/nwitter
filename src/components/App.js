@@ -14,14 +14,24 @@ function App() {
       } else {
         setIsLoggedIn(false);
       }
-      setUserObj(user);
+      setUserObj({
+        displayName: user.displayName,
+        uid: user.uid
+      });
       setInit(true);
     });
   }, []);
-
+  const refreshUser = () => {
+    let user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid
+    });
+    console.log(authService.currentUser)
+  }
   return (
     <>
-     {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> : "Initializing"}
+     {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} refreshUser={refreshUser} /> : "Initializing"}
      {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
     </>
     
